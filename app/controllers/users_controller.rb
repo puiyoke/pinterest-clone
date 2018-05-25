@@ -27,7 +27,7 @@ class UsersController < ApplicationController
         @user = current_user
             if @user.update_attributes(user_params)
                 flash[:notice] = "Update Succesful"
-                redirect_to users_edit_path
+                redirect_to users_show_path
             else
                 flash[:notice] = "Unable to update profile, please try again"
                 render 'edit'
@@ -37,6 +37,6 @@ class UsersController < ApplicationController
     private
 
     def user_params
-        params.require(:user).permit(:first_name, :last_name, :email, :password, :gender)
+        params.require(:user).permit(:first_name, :last_name, :email, :password, :gender, :description, :avatar)
     end
 end

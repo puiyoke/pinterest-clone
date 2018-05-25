@@ -2,6 +2,7 @@
 
 <%= form_for :user, url: '/users/edit' do |f| %>
 
+  Add profile image: <%= f.file_field :avatar %>
   Email: <%= f.text_field :email %>
   Password: <%= f.password_field :password %>
   First name: <%= f.text_field :first_name %>
@@ -10,5 +11,5 @@
   Male<span><%= f.radio_button :gender, "male" %>
   Female<span><%= f.radio_button :gender, "female" %>
   <%= f.submit "Submit" %>
-
+  About you: <%= f.text_area :description %>
 <% end %>
