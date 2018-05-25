@@ -9,4 +9,8 @@ Rails.application.routes.draw do
   get '/signup' => 'users#new'
   post '/users' => 'users#create'
 
+  get 'users/show' => 'users#show'
+  get 'users/edit' => 'users#edit'
+  post 'users/edit' => 'users#update'
+
 end

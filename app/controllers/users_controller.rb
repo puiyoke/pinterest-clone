@@ -3,6 +3,10 @@ class UsersController < ApplicationController
     def new
     end
 
+    def show
+        @user = current_user
+    end
+
     def create
         @user = User.new(user_params)
             if @user.save
@@ -16,6 +20,18 @@ class UsersController < ApplicationController
     end  
     
     def edit
+        @user = current_user
+    end
+
+    def update
+        @user = current_user
+            if @user.update_attributes(user_params)
+                flash[:notice] = "Update Succesful"
+                redirect_to users_edit_path
+            else
+                flash[:notice] = "Unable to update profile, please try again"
+                render 'edit'
+            end
     end
 
     private
