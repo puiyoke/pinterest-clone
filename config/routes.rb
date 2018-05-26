@@ -8,12 +8,14 @@ Rails.application.routes.draw do
 
   get '/signup' => 'users#new'
   post '/users' => 'users#create'
+  get "/auth/:provider/callback" => "sessions#create_from_omniauth"
 
   get 'users/show' => 'users#show'
   get 'users/edit' => 'users#edit'
   post 'users/edit' => 'users#update'
 
-  get "/auth/:provider/callback" => "sessions#create_from_omniauth"
-
+  get 'users/pins' => 'users#pins'
+  get 'pins/new' => 'pins#new'
+  post 'pins/new' => 'pins#create'
 
 end

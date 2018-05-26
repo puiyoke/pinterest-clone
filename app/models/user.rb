@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
     enum gender: {not_telling: 0, male: 1, female: 2}
     mount_uploader :avatar, AvatarUploader
     has_many :authentications, dependent: :destroy
+    has_many :pins, dependent: :destroy
     before_create {generate_token(:auth_token)}
        
     def self.create_with_auth_and_hash(authentication, auth_hash)

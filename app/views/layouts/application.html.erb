@@ -10,7 +10,8 @@
   </head>
 
   <body>
-
+  <div class="modal" style="display:none;">
+  </div>
   <% if current_user %>
     Signed in as <%= current_user.first_name %> | <%= link_to "Logout", '/logout' %>
   <% else %>

@@ -7,6 +7,10 @@ class UsersController < ApplicationController
         @user = current_user
     end
 
+    def pins
+        @pin = current_user.pins
+    end
+
     def create
         @user = User.new(user_params)
             if @user.save
