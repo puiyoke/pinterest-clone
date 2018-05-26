@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
     mount_uploader :avatar, AvatarUploader
     has_many :authentications, dependent: :destroy
     has_many :pins, dependent: :destroy
+    has_many :boards
     before_create {generate_token(:auth_token)}
        
     def self.create_with_auth_and_hash(authentication, auth_hash)

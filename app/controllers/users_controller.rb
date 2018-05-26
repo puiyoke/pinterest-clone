@@ -11,6 +11,10 @@ class UsersController < ApplicationController
         @pin = current_user.pins
     end
 
+    def boards
+        @board = current_user.boards
+    end
+
     def create
         @user = User.new(user_params)
             if @user.save
