@@ -5,6 +5,11 @@ class BoardsController < ApplicationController
 
     def show
         @board = Board.find(params[:id])
+        @group = Group.where(board_id: params[:id])        
+    end
+
+    def list
+        @board = current_user.boards
     end
 
     def create

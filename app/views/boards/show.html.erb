@@ -1,2 +1,7 @@
 <%=@board.title%><br>
-<%=@board.description%>
+<%=@board.description%><br>
+
+
+<%@board.pins.each do |x|%>
+    <%=image_tag x.image.url%>
+<%end%>

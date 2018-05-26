@@ -23,4 +23,7 @@ Rails.application.routes.draw do
   get 'boards/new' => 'boards#new'
   post 'boards/new' => 'boards#create'
   get 'boards/:id' => 'boards#show'
+
+  get 'pins/:id/add_to_board' => 'boards#list'
+  post 'pins/:id/:board_id' => 'groups#create'
 end
