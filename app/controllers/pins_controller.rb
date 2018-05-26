@@ -3,6 +3,7 @@ class PinsController < ApplicationController
 # This will force user's to login before they can see the actions in this controller
 
     def new
+        @pin = Pin.new
     end
 
     def show
@@ -10,14 +11,11 @@ class PinsController < ApplicationController
     end
 
     def create
-        @pin = Pin.new(pin_params)
-            if @pin.save
-                flash[:notice] = "Pin Successfully Created"
-                redirect_to '/users/pins'
-            else
-                flash[:notice] = "Unable to create pin, please try again"
-                redirect_to '/pins/new'
-            end
+        @pin = Pin.create(pin_params)
+        respond_to do |format|
+        format.html {redirect_to '/users/pins'}
+        format.js
+        end
     end
 
     def pin_params
