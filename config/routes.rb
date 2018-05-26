@@ -13,4 +13,7 @@ Rails.application.routes.draw do
   get 'users/edit' => 'users#edit'
   post 'users/edit' => 'users#update'
 
+  get "/auth/:provider/callback" => "sessions#create_from_omniauth"
+
+
 end
