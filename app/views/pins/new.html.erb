@@ -3,7 +3,7 @@
 <%= form_for :pin, url: '/pins/new' do |f| %>
 
   *Image: <%= f.file_field :image, :required => 'required' %>
-  *Title: <%= f.text_field :title, :required => 'required' %>
+  *Title: <%= f.text_field :title %>
   Description: <%= f.text_area :description %>
   <%= f.hidden_field :user_id, :value => current_user.id %>
   <%= f.submit "Submit" %>
