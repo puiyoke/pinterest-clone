@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
           # you are expected to have a path that leads to a page for editing user details
         end
       
-        session[:user_id] = user.id
+        cookies[:auth_token] = user.auth_token
         flash[:notice] = "Login Succesful"
         redirect_to '/'
     end
@@ -24,9 +24,13 @@ class SessionsController < ApplicationController
         user = User.find_by_email(params[:email])
             # If the user exists AND the password entered is correct.
             if user && user.authenticate(params[:password])
+                if params[:remember_me]
+                    cookies.permanent[:auth_token] = user.auth_token
+                else
+                    cookies[:auth_token] = user.auth_token
+                end
                 # Save the user id inside the browser cookie. This is how we keep the user 
                 # logged in when they navigate around our website.
-                session[:user_id] = user.id
                 flash[:notice] = "Login Succesful"
                 redirect_to '/'
             else
@@ -37,7 +41,7 @@ class SessionsController < ApplicationController
     end
     
     def destroy
-        session[:user_id] = nil
+        cookies.delete(:auth_token)
         flash[:notice] = "Logout Succesful"
         redirect_to '/login'
     end

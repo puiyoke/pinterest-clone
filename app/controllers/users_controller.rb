@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     def create
         @user = User.new(user_params)
             if @user.save
-                session[:user_id] = @user.id
+                cookies[:auth_token] = @user.auth_token
                 flash[:notice] = "User Successfully Created"
                 redirect_to '/'
             else
