@@ -1,7 +1,8 @@
 add to boards page<br>
 
-<%=link_to "New Board", pins_new_path, id:"new_board_link", remote: true%>
+<%=link_to "New Board", boards_new2_path, id:"new_board_link2", remote: true%>
 
+<div id="user-boards2">
 <%if @board.exists?%>
     <%@board.each do |x|%>
         <%=x.title%>
@@ -14,4 +15,4 @@ add to boards page<br>
           <% end %>
     <%end%>
 <%end%>
-
+</div>

@@ -22,6 +22,8 @@ Rails.application.routes.draw do
   get 'users/boards' => 'users#boards'
   get 'boards/new' => 'boards#new'
   post 'boards/new' => 'boards#create'
+  get 'boards/new2' => 'boards#new2'
+  post 'boards/new2' => 'boards#create2'
   get 'boards/:id' => 'boards#show'
 
   get 'pins/:id/add_to_board' => 'boards#list'

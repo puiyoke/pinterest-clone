@@ -4,6 +4,10 @@ class BoardsController < ApplicationController
         @board = Board.new
     end
 
+    def new2
+        @board = Board.new
+    end
+
     def show
         @board = Board.find(params[:id])
         @group = Group.where(board_id: params[:id])        
@@ -18,7 +22,15 @@ class BoardsController < ApplicationController
         respond_to do |format|
             format.html {redirect_to '/users/boards'}
             format.js
-            end
+        end
+    end
+
+    def create2
+        @board = Board.create(board_params)
+        respond_to do |format|
+            format.html {redirect_to request.referrer}
+            format.js
+        end
     end
 
     def board_params
