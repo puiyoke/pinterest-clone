@@ -33,6 +33,15 @@ class BoardsController < ApplicationController
         end
     end
 
+    def destroy
+        @board = Board.find(params[:id])
+        @board.destroy
+        respond_to do |format|
+          format.html { redirect_to request.referrer }
+          format.json
+        end
+    end
+
     def board_params
         params.require(:board).permit(:title, :description, :user_id)
     end

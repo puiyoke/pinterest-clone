@@ -18,6 +18,15 @@ class PinsController < ApplicationController
         end
     end
 
+    def destroy
+        @pin = Pin.find(params[:id])
+        @pin.destroy
+        respond_to do |format|
+          format.html { redirect_to request.referrer }
+          format.json
+        end
+    end
+
     def pin_params
         params.require(:pin).permit(:title, :description, :image, :user_id)
     end

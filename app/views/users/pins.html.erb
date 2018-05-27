@@ -4,5 +4,8 @@
 <div id="user_pins">
     <%@pin.each do |x|%>
         <%=image_tag x.image.url%>
+        <a href="/pins/<%=x.id%>/destroy">Delete Pin</a>
+        
     <%end%>
 </div>
+

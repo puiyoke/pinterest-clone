@@ -4,5 +4,6 @@
 <div id="user-boards">
     <%@board.each do |x|%>
         <a href="/boards/<%=x.id%>"><%=x.title%></a>
+        <a href="/boards/<%=x.id%>/destroy">Delete Board</a><br>
     <%end%>
 </div>

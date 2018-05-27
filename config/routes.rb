@@ -28,4 +28,7 @@ Rails.application.routes.draw do
 
   get 'pins/:id/add_to_board' => 'boards#list'
   post 'pins/:id/:board_id' => 'groups#create'
+
+  get 'pins/:id/destroy' => 'pins#destroy'
+  get 'boards/:id/destroy' => 'boards#destroy'
 end
