@@ -4,6 +4,7 @@
     *Image: <%= f.file_field :image, :required => 'required' %>
     *Title: <%= f.text_field :title %>
     Description: <%= f.text_area :description %>
+    Tags (separated by comma): <%= f.text_area :tag_list %>
     <%= f.hidden_field :user_id, :value => current_user.id %>
     <%= f.submit "Submit" %>
   
