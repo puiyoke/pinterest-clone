@@ -1,0 +1,6 @@
+
+<%@tagging.each do |x|%>
+    <%@pin.where(id: x.pin_id).each do |y|%>
+        <%=image_tag y.image.url%>
+        <%end%>
+        <%end%>
