@@ -1,12 +1,12 @@
 <%=link_to "New Pin", pins_new_path, id:"new_link", remote: true%>
+
 <br>
 
 <div id="user_pins">
     <%@pin.each do |x|%>
         <%=image_tag x.image.url%>
         <a href="/pins/<%=x.id%>/edit">Edit</a>
-        <a href="/pins/<%=x.id%>/destroy", data-confirm="Are you sure?">Delete</a>
-        
+        <a href="/pins/<%=x.id%>/destroy", data-confirm="Are you sure?">Delete</a>  
     <%end%>
 </div>
 

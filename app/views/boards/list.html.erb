@@ -3,16 +3,16 @@ add to boards page<br>
 <%=link_to "New Board", boards_new2_path, id:"new_board_link2", remote: true%>
 
 <div id="user-boards2">
-<%if @board.exists?%>
-    <%@board.each do |x|%>
-        <%=x.title%>
-        <%= form_for :group do |f| %>
+    <%if @board.exists?%>
+        <%@board.each do |x|%>
+            <%=x.title%>
 
-            <%= f.hidden_field :board_id, :value => x.id %>
-            <%= f.hidden_field :pin_id, :value => @pin.id %>
-            <%= f.submit "Add to Board" %>
-          
-          <% end %>
+            <%= form_for :group do |f| %>
+                <%= f.hidden_field :board_id, :value => x.id %>
+                <%= f.hidden_field :pin_id, :value => @pin.id %>
+                <%= f.submit "Add to Board" %>
+            <% end %>
+            
+        <%end%>
     <%end%>
-<%end%>
 </div>

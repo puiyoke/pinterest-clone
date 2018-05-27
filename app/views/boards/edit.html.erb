@@ -1,8 +1,8 @@
 <h1>Edit Board!</h1>
 
-    <%= form_for :board do |f| %>
-        *Title: <%= f.text_field :title, :required => 'required' %>
-        Description: <%= f.text_area :description %>
-        <%= f.hidden_field :user_id, :value => current_user.id %>
-        <%= f.submit "Submit" %>
-    <% end %>
+<%= form_for :board do |f| %>
+    *Title: <%= f.text_field :title, :required => 'required' %>
+    Description: <%= f.text_area :description %>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+    <%= f.submit "Submit" %>
+<% end %>

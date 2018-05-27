@@ -6,4 +6,5 @@ class TagsController < ApplicationController
         @pin = Pin.all
     end
 
+
 end

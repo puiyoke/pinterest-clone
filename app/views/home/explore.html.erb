@@ -1,3 +1,8 @@
+<%@tag.each do |x|%>
+    <a href="/explore/<%=x.name%>"><%=x.name%></a>
+<%end%>
+
+<br>
 
 <%@tagging.each do |x|%>
     <%@pin.where(id: x.pin_id).each do |y|%>
