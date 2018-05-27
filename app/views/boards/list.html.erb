@@ -1,4 +1,7 @@
 add to boards page<br>
+
+<%=link_to "New Board", pins_new_path, id:"new_board_link", remote: true%>
+
 <%if @board.exists?%>
     <%@board.each do |x|%>
         <%=x.title%>

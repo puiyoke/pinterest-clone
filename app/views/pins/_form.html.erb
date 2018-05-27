@@ -1,4 +1,5 @@
-<%= form_for :pin, url: '/pins/new', id:"pin-form", remote: true do |f| %>
+<div id="pin-form">
+  <%= form_for :pin, url: '/pins/new', id:"pin-form", remote: true do |f| %>
 
     *Image: <%= f.file_field :image, :required => 'required' %>
     *Title: <%= f.text_field :title %>
@@ -7,3 +8,4 @@
     <%= f.submit "Submit" %>
   
   <% end %>
+</div>
