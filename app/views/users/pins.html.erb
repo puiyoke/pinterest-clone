@@ -1,7 +1,8 @@
 <%=link_to "New Pin", pins_new_path, id:"new_link", remote: true%>
 <br>
+
 <div id="user_pins">
-<%@pin.each do |x|%>
-    <%=image_tag x.image.url%>
-<%end%>
+    <%@pin.each do |x|%>
+        <%=image_tag x.image.url%>
+    <%end%>
 </div>

@@ -1,6 +1,7 @@
 class BoardsController < ApplicationController
 
     def new
+        @board = Board.new
     end
 
     def show
@@ -13,13 +14,10 @@ class BoardsController < ApplicationController
     end
 
     def create
-        @board = Board.new(board_params)
-            if @board.save
-                flash[:notice] = "Board Successfully Created"
-                redirect_to '/users/boards'
-            else
-                flash[:notice] = "Unable to create board, please try again"
-                redirect_to '/boards/new'
+        @board = Board.create(board_params)
+        respond_to do |format|
+            format.html {redirect_to '/users/boards'}
+            format.js
             end
     end
 

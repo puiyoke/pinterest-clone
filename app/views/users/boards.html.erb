@@ -1,5 +1,8 @@
-<a href="/boards/new">Create a new Board</a>
+<%=link_to "New Board", boards_new_path, id:"new_board_link", remote: true%>
 <br>
-<%@board.each do |x|%>
-    <a href="/boards/<%=x.id%>"><%=x.title%></a>
-<%end%> 
+
+<div id="user-boards">
+    <%@board.each do |x|%>
+        <a href="/boards/<%=x.id%>"><%=x.title%></a>
+    <%end%>
+</div>
