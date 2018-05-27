@@ -18,6 +18,19 @@ class PinsController < ApplicationController
         end
     end
 
+    def edit
+        @pin = Pin.find(params[:id])
+    end
+
+    def update
+        @pin = Pin.find(params[:id])
+        @pin.update(pin_params)
+        respond_to do |format|
+            format.html {redirect_to '/users/pins'}
+            format.js
+        end
+    end
+
     def destroy
         @pin = Pin.find(params[:id])
         @pin.destroy

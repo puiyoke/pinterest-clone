@@ -15,6 +15,7 @@ class BoardsController < ApplicationController
 
     def list
         @board = current_user.boards
+        @pin = Pin.find(params[:id])
     end
 
     def create
@@ -29,6 +30,19 @@ class BoardsController < ApplicationController
         @board = Board.create(board_params)
         respond_to do |format|
             format.html {redirect_to request.referrer}
+            format.js
+        end
+    end
+
+    def edit
+        @board = Board.find(params[:id])
+    end
+
+    def update
+        @board = Board.find(params[:id])
+        @board.update(board_params)
+        respond_to do |format|
+            format.html {redirect_to '/users/boards'}
             format.js
         end
     end

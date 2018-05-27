@@ -6,10 +6,10 @@ add to boards page<br>
 <%if @board.exists?%>
     <%@board.each do |x|%>
         <%=x.title%>
-        <%= form_for :group, url: '/pins/:id/:board_id' do |f| %>
+        <%= form_for :group do |f| %>
 
             <%= f.hidden_field :board_id, :value => x.id %>
-            <%= f.hidden_field :pin_id, :value => params[:id] %>
+            <%= f.hidden_field :pin_id, :value => @pin.id %>
             <%= f.submit "Add to Board" %>
           
           <% end %>

@@ -1,0 +1,12 @@
+<h1>Edit Pin!</h1>
+
+<%=image_tag @pin.image.url%>
+
+<%= form_for :pin do |f| %>
+
+    Title: <%= f.text_field :title %>
+    Description: <%= f.text_area :description %>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+    <%= f.submit "Submit" %>
+  
+<% end %>

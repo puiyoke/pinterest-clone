@@ -20,11 +20,16 @@ Rails.application.routes.draw do
   get 'pins/:id' => 'pins#show'
 
   get 'users/boards' => 'users#boards'
-  get 'boards/new' => 'boards#new'
-  post 'boards/new' => 'boards#create'
   get 'boards/new2' => 'boards#new2'
   post 'boards/new2' => 'boards#create2'
+  get 'boards/new' => 'boards#new'
+  post 'boards/new' => 'boards#create'
   get 'boards/:id' => 'boards#show'
+
+  get 'pins/:id/edit' => 'pins#edit'
+  post 'pins/:id/edit' => 'pins#update'
+  get 'boards/:id/edit' => 'boards#edit'
+  post 'boards/:id/edit' => 'boards#update'
 
   get 'pins/:id/add_to_board' => 'boards#list'
   post 'pins/:id/:board_id' => 'groups#create'
