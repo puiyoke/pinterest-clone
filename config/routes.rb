@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'tags/:tag' => 'tags#show', as: :tag
   get '/explore' => 'home#explore'
   get '/explore/:tag' => 'home#explore'
+  get '/tags' => 'tags#search'
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
@@ -17,8 +18,6 @@ Rails.application.routes.draw do
   get 'users/show' => 'users#show'
   get 'users/edit' => 'users#edit'
   post 'users/edit' => 'users#update'
-
-  get '/tags' => 'tags#search'
 
   get 'users/pins' => 'users#pins'
   get 'pins/new' => 'pins#new'

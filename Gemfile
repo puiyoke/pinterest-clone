@@ -70,3 +70,6 @@ gem 'fog'
 gem "figaro"
 gem "omniauth"
 gem "omniauth-google-oauth2"
+
+gem "jquery-rails"
+gem "jquery-ui-rails"

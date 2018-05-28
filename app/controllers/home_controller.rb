@@ -2,6 +2,7 @@ class HomeController < ApplicationController
 
     def index
         @pin = Pin.all
+        @tag = Tag.all
     end
 
     def explore

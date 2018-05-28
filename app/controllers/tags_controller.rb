@@ -7,9 +7,10 @@ class TagsController < ApplicationController
     end
 
     def search
+        @pin = Pin.all
         @tags = Tag.search(params[:search])
         @tagging = Tagging.where(tag_id: @tags)
-        @pin = Pin.all
+        
     end
 
 end
