@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   get 'users/edit' => 'users#edit'
   post 'users/edit' => 'users#update'
 
+  get '/tags' => 'tags#search'
+
   get 'users/pins' => 'users#pins'
   get 'pins/new' => 'pins#new'
   post 'pins/new' => 'pins#create'
@@ -40,4 +42,6 @@ Rails.application.routes.draw do
 
   get 'pins/:id/destroy' => 'pins#destroy'
   get 'boards/:id/destroy' => 'boards#destroy'
+
+  
 end

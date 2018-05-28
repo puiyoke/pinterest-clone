@@ -6,4 +6,12 @@ class Tag < ApplicationRecord
     def downcase_fields
        self.name.downcase!
     end
+
+    def self.search(search)
+        if search
+            where("name ILIKE ?", "%#{search}%")
+        else
+            scoped
+        end
+    end
 end

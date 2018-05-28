@@ -1,0 +1,12 @@
+<h1>Search!</h1>
+<p>Tag: <%=params[:search]%></p>
+
+<% if @tags.blank? %>
+    <p>There are no results containing the term <%= params[:search] %>.</p>
+<% end %>
+
+<%@tagging.each do |x|%>
+    <%@pin.where(id: x.pin_id).each do |y|%>
+        <%=image_tag y.image.url%>
+    <%end%>
+<%end%>

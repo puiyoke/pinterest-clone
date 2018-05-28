@@ -6,10 +6,10 @@
         <a class="navbar-brand" href="#">
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Pok%C3%A9_Ball_icon.svg/2000px-Pok%C3%A9_Ball_icon.svg.png" width="50" height="50" alt="">
         </a>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <%=form_tag(tags_path, :method => 'get', id: "search-form", class:"form-inline") do%>
+            <input id="tags"<%=text_field_tag :search, params[:search], placeholder: "Search Tags", class:"form-control mr-sm-2"%>
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
+        <%end%>
     </nav>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
