@@ -22,6 +22,8 @@ Rails.application.routes.draw do
   get 'users/:id' => 'users#view'
   post 'follow' => 'users#follow'
   post 'unfollow' => 'users#unfollow'
+  get '/follower' => 'users#follower'
+  get '/following' => 'users#following'
 
   get 'users/pins' => 'users#pins'
   get 'pins/new' => 'pins#new'

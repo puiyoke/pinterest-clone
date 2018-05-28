@@ -59,6 +59,13 @@ class UsersController < ApplicationController
         redirect_to request.referrer
     end
 
+    def follower
+    end
+
+    def following
+        
+    end
+
     private
 
     def user_params

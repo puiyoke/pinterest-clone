@@ -1,5 +1,5 @@
 <h1><%=@user.first_name%> <%=@user.last_name%></h1>
-<p><%=current_user.followers_count%> followers | <%=current_user.follow_count%> following</p>
+<p><a href="/follower"><%=current_user.followers_count%> followers</a> | <a href="/following"><%=current_user.follow_count%> following</p></a>
 <p><%=@user.description%></p>
 
 <% if @user.avatar.url.present?%>
@@ -9,4 +9,5 @@
 <%end%>
 <br>
 <br>
+<a href="/users/edit">Edit Profile</a><br>
 <a href="boards">Boards</a> | <a href="pins">Pins</a> | <a href="#">Topics</a>
