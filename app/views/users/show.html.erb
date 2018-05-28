@@ -1,5 +1,5 @@
 <h1><%=@user.first_name%> <%=@user.last_name%></h1>
-<p>0 followers | 0 following</p>
+<p><%=current_user.followers_count%> followers | <%=current_user.follow_count%> following</p>
 <p><%=@user.description%></p>
 
 <% if @user.avatar.url.present?%>

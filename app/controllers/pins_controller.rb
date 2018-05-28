@@ -8,6 +8,7 @@ class PinsController < ApplicationController
 
     def show
         @pin = Pin.find(params[:id])
+        @user = User.find(@pin.user_id)
     end
 
     def create

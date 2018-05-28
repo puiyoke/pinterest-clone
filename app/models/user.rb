@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
     has_many :pins, dependent: :destroy
     has_many :boards
     before_create {generate_token(:auth_token)}
+    acts_as_followable
+    acts_as_follower
        
     def self.create_with_auth_and_hash(authentication, auth_hash)
         user = self.create!(

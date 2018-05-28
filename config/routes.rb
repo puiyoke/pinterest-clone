@@ -19,6 +19,10 @@ Rails.application.routes.draw do
   get 'users/edit' => 'users#edit'
   post 'users/edit' => 'users#update'
 
+  get 'users/:id' => 'users#view'
+  post 'follow' => 'users#follow'
+  post 'unfollow' => 'users#unfollow'
+
   get 'users/pins' => 'users#pins'
   get 'pins/new' => 'pins#new'
   post 'pins/new' => 'pins#create'

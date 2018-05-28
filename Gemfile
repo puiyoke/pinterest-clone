@@ -73,3 +73,5 @@ gem "omniauth-google-oauth2"
 
 gem "jquery-rails"
 gem "jquery-ui-rails"
+
+gem 'acts_as_follower', github: 'tcocca/acts_as_follower', branch: 'master'

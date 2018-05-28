@@ -7,6 +7,10 @@ class UsersController < ApplicationController
         @user = current_user
     end
 
+    def view
+        @user = User.find(params[:id])
+    end
+
     def pins
         @pin = current_user.pins
     end
@@ -40,6 +44,19 @@ class UsersController < ApplicationController
                 flash[:notice] = "Unable to update profile, please try again"
                 render 'edit'
             end
+    end
+
+    def follow
+        @user = User.find(params[:id])
+        current_user.follow(@user)
+        @follow = Follow.find_by(follower: @current_user, followable: @user)
+        redirect_to request.referrer
+    end
+
+    def unfollow
+        @user = User.find(params[:id])
+        current_user.stop_following(@user)
+        redirect_to request.referrer
     end
 
     private
