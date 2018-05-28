@@ -9,6 +9,7 @@ class HomeController < ApplicationController
         @tag = Tag.all.order('created_at DESC').first(20)
         @tagged = Tag.where(name: params[:tag])
         @tagging = Tagging.where(tag_id: @tagged)
+        @taggings = Tagging.all
         @pin = Pin.all
     end
     

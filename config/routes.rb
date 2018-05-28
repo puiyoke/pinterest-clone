@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   get 'users/edit' => 'users#edit'
   post 'users/edit' => 'users#update'
 
-  get 'users/:id' => 'users#view'
+ 
   post 'follow' => 'users#follow'
   post 'unfollow' => 'users#unfollow'
   get '/follower' => 'users#follower'
@@ -49,5 +49,5 @@ Rails.application.routes.draw do
   get 'pins/:id/destroy' => 'pins#destroy'
   get 'boards/:id/destroy' => 'boards#destroy'
 
-  
+  get 'users/:id' => 'users#view'
 end

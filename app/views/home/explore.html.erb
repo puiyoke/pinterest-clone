@@ -3,9 +3,14 @@
 <%end%>
 
 <br>
-
-<%@tagging.each do |x|%>
-    <%@pin.where(id: x.pin_id).each do |y|%>
-        <%=image_tag y.image.url%>
+<%if@tagging.present?%>
+    <%@tagging.each do |x|%>
+        <%@pin.where(id: x.pin_id).each do |y|%>
+            <%=image_tag y.image.url%>
+        <%end%>
     <%end%>
+<%else%>
+
+    <%=image_tag @pin.find(@taggings.last.pin_id).image.url%>
+
 <%end%>
