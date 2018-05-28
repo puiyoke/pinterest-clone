@@ -4,4 +4,5 @@
 
 <%@board.pins.each do |x|%>
     <%=image_tag x.image.url%>
+    <a href="/boards/<%=params[:id]%>/<%=x.id%>/destroy">Remove from Board</a>
 <%end%>

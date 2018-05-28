@@ -30,6 +30,7 @@ Rails.application.routes.draw do
   get 'boards/new' => 'boards#new'
   post 'boards/new' => 'boards#create'
   get 'boards/:id' => 'boards#show'
+  get 'boards/:id/:pin_id/destroy' => 'groups#destroy'
 
   get 'pins/:id/edit' => 'pins#edit'
   post 'pins/:id/edit' => 'pins#update'
