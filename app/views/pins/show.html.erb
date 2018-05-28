@@ -11,3 +11,25 @@ Uploader:
 <%=image_tag @pin.image.url%>
 
 <%= raw @pin.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %>
+
+
+<div id="comment-form">
+  <%= form_for :comment, url: '/comments/new', id:"comment-form", remote: true do |f| %>
+    Comment: <%= f.text_area :comment, :required => 'required' %>
+    <%= f.hidden_field :pin_id, :value => @pin.id %>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+    <%= f.submit "Submit" %>
+  <% end %>
+</div>
+
+<div id="comments">
+    <%@comments.each do |x|%>
+        <%@users.where(id: x.user_id).each do |y|%>
+            <%if y.avatar?%>
+            <%=image_tag y.avatar.small_thumb.url%>
+            <%end%>
+            <%=y.first_name%><br>
+            <%=x.comment%><br><br>
+        <%end%>
+    <%end%>
+</div>

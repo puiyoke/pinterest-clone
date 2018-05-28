@@ -4,6 +4,7 @@ has_many :groups
 has_many :boards, :through => :groups
 has_many :taggings
 has_many :tags, through: :taggings
+has_many :comments
 mount_uploader :image, AvatarUploader
 
     def self.tagged_with(name)

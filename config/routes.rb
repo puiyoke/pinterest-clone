@@ -50,4 +50,6 @@ Rails.application.routes.draw do
   get 'boards/:id/destroy' => 'boards#destroy'
 
   get 'users/:id' => 'users#view'
+
+  post 'comments/new' => 'comments#create'
 end

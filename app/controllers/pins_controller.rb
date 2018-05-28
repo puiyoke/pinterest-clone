@@ -9,6 +9,8 @@ class PinsController < ApplicationController
     def show
         @pin = Pin.find(params[:id])
         @user = User.find(@pin.user_id)
+        @users = User.all
+        @comments = Comment.where(pin_id: params[:id])
     end
 
     def create
