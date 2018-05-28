@@ -1,1 +1,5 @@
-<%=@comment.comment%>
+<%if current_user.avatar?%>
+    <%=image_tag current_user.avatar.small_thumb.url%>
+<%end%>
+<%=current_user.first_name%><br>
+<%=@comment.comment%><br><br>
