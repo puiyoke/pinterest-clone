@@ -5,7 +5,7 @@
 <% if @user.avatar.url.present?%>
     <%=image_tag @user.avatar_url(:thumb)%>
 <% else %>
-	<img src="https://s3.amazonaws.com/pinpinpinbucket/default_avatar.png">
+	<img src="http://res.cloudinary.com/puiyoke/image/upload/w_150,c_scale/v1527590348/default_avatar.png">
 <%end%>
 <br>
 <br>

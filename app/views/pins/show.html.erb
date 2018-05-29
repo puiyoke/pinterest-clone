@@ -40,7 +40,9 @@
                 <%@comments.each do |x|%>
                     <%@users.where(id: x.user_id).each do |y|%>
                         <%if y.avatar?%>
-                            <%=image_tag y.avatar_url(:small_thumb)%>
+                            <a href="/users/<%=y.id%>"><%=image_tag y.avatar_url(:small_thumb)%><a href="/users/<%=y.id%>">
+                        <%else%>
+                            <a href="/users/<%=y.id%>"><img src="http://res.cloudinary.com/puiyoke/image/upload/w_50,c_scale/v1527590348/default_avatar.png"><a href="/users/<%=y.id%>">
                         <%end%>
                         <%if current_user.id == y.id%>
                             <a href="/users/show"><%=y.first_name%></a><br>
