@@ -4,7 +4,7 @@ class GroupsController < ApplicationController
         @group = Group.new(group_params)
             if @group.save
                 flash[:notice] = "Pin successfully added to Board"
-                redirect_to '/users/boards'
+                redirect_to request.referrer
             else
                 flash[:notice] = "Unable to add to board, please try again"
                 redirect_to '/boards/new'

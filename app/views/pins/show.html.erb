@@ -1,35 +1,62 @@
-<a href="/pins/<%=@pin.id%>/add_to_board">Save to board</a>
-Uploader: 
-<%if current_user.id == @user.id%>
-    <a href="/users/show"><%=@user.first_name%></a>
-<%else%>
-    <a href="/users/<%=@user.id%>"><%=@user.first_name%></a>
-<%end%>
+<a href="/">Back</a>
 
-<%=@pin.title%><br>
-<%=@pin.description%><br>
-<%=image_tag @pin.image.url%>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th scope="col">Uploader: 
+                <%if current_user.id == @user.id%>
+                    <a href="/users/show"><%=@user.first_name%></a>
+                <%else%>
+                    <a href="/users/<%=@user.id%>"><%=@user.first_name%></a>
+                <%end%>
+            </th>
+            <th scope="col">Title: <%=@pin.title%></th>
+        </tr>
+    </thead>
 
-<%= raw @pin.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %>
+    <tbody>
+        <tr>
+            <td><a href="/pins/<%=@pin.id%>/add_to_board">Save to board</a><br><%=image_tag @pin.image.url%></td>
+            <td>Description: <%=@pin.description%></td>
+        </tr>
+
+        <tr>
+            <td>Tags: <%= raw @pin.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %></td>
+            <td>
+                <div id="comment-form">
+                    <%= form_for :comment, url: '/comments/new', id:"comment-form", remote: true do |f| %>
+                        Comment: <%= f.text_area :comment, :required => 'required' %>
+                        <%= f.hidden_field :pin_id, :value => @pin.id %>
+                        <%= f.hidden_field :user_id, :value => current_user.id %>
+                        <%= f.submit "Submit" %>
+                    <% end %>
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2">
+                <h5>Comments:</h5><div id="comments">
+                <%@comments.each do |x|%>
+                    <%@users.where(id: x.user_id).each do |y|%>
+                        <%if y.avatar?%>
+                            <%=image_tag y.avatar.small_thumb.url%>
+                        <%end%>
+                        <%if current_user.id == y.id%>
+                            <a href="/users/show"><%=y.first_name%></a><br>
+                        <%else%>
+                            <a href="/users/<%=y.id%>"><%=y.first_name%></a><br>
+                        <%end%>
+                        <%=x.comment%>
+                        <%if current_user.id == y.id%>
+                            | <a href="">Delete</a>
+                        <%end%>
+                        <br> -------------- <br>
+                    <%end%>
+                <%end%>
+            </td>
+        </tr>
+    </tbody>
+</table>
 
 
-<div id="comment-form">
-  <%= form_for :comment, url: '/comments/new', id:"comment-form", remote: true do |f| %>
-    Comment: <%= f.text_area :comment, :required => 'required' %>
-    <%= f.hidden_field :pin_id, :value => @pin.id %>
-    <%= f.hidden_field :user_id, :value => current_user.id %>
-    <%= f.submit "Submit" %>
-  <% end %>
-</div>
-
-<div id="comments">
-    <%@comments.each do |x|%>
-        <%@users.where(id: x.user_id).each do |y|%>
-            <%if y.avatar?%>
-            <%=image_tag y.avatar.small_thumb.url%>
-            <%end%>
-            <%=y.first_name%><br>
-            <%=x.comment%><br><br>
-        <%end%>
-    <%end%>
-</div>

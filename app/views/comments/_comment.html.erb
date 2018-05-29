@@ -2,4 +2,7 @@
     <%=image_tag current_user.avatar.small_thumb.url%>
 <%end%>
 <%=current_user.first_name%><br>
-<%=@comment.comment%><br><br>
+<%=@comment.comment%><br>
+<%if current_user%>
+    <a href="">Delete</a>
+<%end%>
