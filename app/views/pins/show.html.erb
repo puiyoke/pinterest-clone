@@ -16,7 +16,7 @@
 
     <tbody>
         <tr>
-            <td><a href="/pins/<%=@pin.id%>/add_to_board">Save to board</a><br><%=image_tag @pin.image.url%></td>
+            <td><a href="/pins/<%=@pin.id%>/add_to_board">Save to board</a><br><%=image_tag @pin.image_url(:display)%></td>
             <td>Description: <%=@pin.description%></td>
         </tr>
 
@@ -40,7 +40,7 @@
                 <%@comments.each do |x|%>
                     <%@users.where(id: x.user_id).each do |y|%>
                         <%if y.avatar?%>
-                            <%=image_tag y.avatar.small_thumb.url%>
+                            <%=image_tag y.avatar_url(:small_thumb)%>
                         <%end%>
                         <%if current_user.id == y.id%>
                             <a href="/users/show"><%=y.first_name%></a><br>

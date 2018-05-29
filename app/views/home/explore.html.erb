@@ -6,7 +6,7 @@
 <%if@tagging.present?%>
     <%@tagging.each do |x|%>
         <%@pin.where(id: x.pin_id).each do |y|%>
-            <%=image_tag y.image.url%>
+            <%=image_tag y.image_url(:display)%>
         <%end%>
     <%end%>
 <%else%>

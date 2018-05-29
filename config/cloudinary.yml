@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: puiyoke
+  api_key: '474617252855525'
+  api_secret: 9QYQ8FYChFajOMJafaL59B-sq9s
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: puiyoke
+  api_key: '474617252855525'
+  api_secret: 9QYQ8FYChFajOMJafaL59B-sq9s
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: puiyoke
+  api_key: '474617252855525'
+  api_secret: 9QYQ8FYChFajOMJafaL59B-sq9s
+  enhance_image_tag: true
+  static_image_support: false

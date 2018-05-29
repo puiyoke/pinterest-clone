@@ -4,7 +4,7 @@
 
 <div id="user_pins">
     <%@pin.each do |x|%>
-        <%=image_tag x.image.url%>
+        <%=image_tag x.image_url(:display)%>
         <a href="/pins/<%=x.id%>/edit">Edit</a>
         <a href="/pins/<%=x.id%>/destroy", data-confirm="Are you sure?">Delete</a>  
     <%end%>
