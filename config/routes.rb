@@ -52,4 +52,5 @@ Rails.application.routes.draw do
   get 'users/:id' => 'users#view'
 
   post 'comments/new' => 'comments#create'
+  get 'comments/:id/destroy' => 'comments#destroy'
 end

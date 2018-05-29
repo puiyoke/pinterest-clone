@@ -49,7 +49,7 @@
                         <%end%>
                         <%=x.comment%>
                         <%if current_user.id == y.id%>
-                            | <a href="">Delete</a>
+                            | <a href="/comments/<%=x.id%>/destroy">Delete</a>
                         <%end%>
                         <br> -------------- <br>
                     <%end%>
