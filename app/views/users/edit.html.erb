@@ -1,15 +1,18 @@
 <h1>Edit your profile</h1>
+<br>
 
-<%= form_for :user, url: '/users/edit' do |f| %>
+<div class="form-group col-md-4">
+  <%= form_for :user, url: '/users/edit' do |f| %>
 
-  Add profile image: <%= f.file_field :avatar %>
-  Email: <%= f.text_field :email %>
-  Password: <%= f.password_field :password %>
-  First name: <%= f.text_field :first_name %>
-  Last name: <%= f.text_field :last_name %>
-  Prefer not to disclose<span><%= f.radio_button :gender, "not_telling" %>
-  Male<span><%= f.radio_button :gender, "male" %>
-  Female<span><%= f.radio_button :gender, "female" %>
-  <%= f.submit "Submit" %>
-  About you: <%= f.text_area :description %>
-<% end %>
+    Add profile image: <%= f.file_field :avatar %><br><br>
+    First name: <%= f.text_field :first_name, class: 'form-control' %><br>
+    Last name: <%= f.text_field :last_name, class: 'form-control' %><br>
+    About you: <%= f.text_area :description, class: 'form-control' %><br>
+    Gender:<br>
+    <%= f.radio_button :gender, "not_telling" %><span> Prefer not to disclose<br>
+    <%= f.radio_button :gender, "male" %><span> Male<br>
+    <%= f.radio_button :gender, "female" %><span> Female<br><br>
+    <%= f.submit "Submit", class:"btn btn-primary" %>
+  <% end %>
+</div>
+<br>

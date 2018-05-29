@@ -1,9 +1,9 @@
 <div class="card" style="margin: 10px;">
     <div class="card-body">
-                <h5 class="card-title"><%=@board.title%></h5>
-                <p class="card-text"><%=@board.pins.count%> Pins</p>
-                <a href="/boards/<%=@board.id%>" class="btn btn-primary">View Board</a>
-                <a href="/boards/<%=@board.id%>/edit">Edit</a> | 
-                <a href="/boards/<%=@board.id%>/destroy", data-confirm="Are you sure?">Delete</a><br>
+        <h5 class="card-title"><%=@board.title%></h5>
+        <p class="card-text"><%=@board.pins.count%> Pins</p>
+        <a href="/boards/<%=@board.id%>" class="btn btn-primary">View Board</a>
+        <a href="/boards/<%=@board.id%>/edit">Edit</a> | 
+        <a href="/boards/<%=@board.id%>/destroy", data-confirm="Are you sure?">Delete</a><br>
     </div>
 </div>

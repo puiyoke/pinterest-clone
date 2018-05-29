@@ -1,8 +1,10 @@
-<div id="board-form2">
-    <%= form_for :board, url: '/boards/new2' do |f| %>
-        *Title: <%= f.text_field :title, :required => 'required' %>
-        Description: <%= f.text_area :description %>
-        <%= f.hidden_field :user_id, :value => current_user.id %>
-        <%= f.submit "Submit" %>
-    <% end %>
+<div class="form-group col-md-4">
+    <div id="board-form2">
+        <%= form_for :board, url: '/boards/new2' do |f| %>
+            *Title: <%= f.text_field :title, :required => 'required', class: 'form-control' %><br>
+            Description: <%= f.text_area :description, class: 'form-control' %><br>
+            <%= f.hidden_field :user_id, :value => current_user.id %>
+            <%= f.submit "Submit", class:"btn btn-primary" %>
+        <% end %>
+    </div>
 </div>

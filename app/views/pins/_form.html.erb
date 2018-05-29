@@ -1,12 +1,14 @@
-<div id="pin-form">
-  <%= form_for :pin, url: '/pins/new', id:"pin-form" do |f| %>
+<div class="form-group col-md-4">
+  <div id="pin-form">
+    <%= form_for :pin, url: '/pins/new', id:"pin-form" do |f| %>
 
-    *Image: <%= f.file_field :image, :required => 'required' %>
-    *Title: <%= f.text_field :title %>
-    Description: <%= f.text_area :description %>
-    Tags (separated by comma): <%= f.text_area :tag_list, :required => 'required' %>
-    <%= f.hidden_field :user_id, :value => current_user.id %>
-    <%= f.submit "Submit" %>
-  
-  <% end %>
+      *Image: <%= f.file_field :image, :required => 'required'%><br><br>
+      *Title: <%= f.text_field :title, class: 'form-control' %><br>
+      Description: <%= f.text_area :description, class: 'form-control' %><br>
+      Tags (separated by comma): <%= f.text_area :tag_list, :required => 'required', class: 'form-control' %><br>
+      <%= f.hidden_field :user_id, :value => current_user.id %>
+      <%= f.submit "Submit", class:"btn btn-primary" %>
+    
+    <% end %>
+  </div>
 </div>
