@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
 
     def index
-        @pin = Pin.all
+        @pin = Pin.all.order('created_at DESC')
         @tag = Tag.all
     end
 

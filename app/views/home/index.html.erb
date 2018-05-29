@@ -1,7 +1,14 @@
 
-<%@pin.each do |x|%>
-    <a href="/pins/<%=x.id%>"><%=image_tag x.image_url(:display)%></a>
-<%end%>
+<div class="container">
+  <div class="card-columns">
+    <%@pin.each do |x|%>
+      <div class="card">
+        <a href="/pins/<%=x.id%>"><%=image_tag x.image_url(:display)%></a>
+      </div>
+    <%end%>
+  </div>
+</div>
+
 
 <script>
 $( function() {
@@ -15,3 +22,4 @@ $( function() {
   });
 } );
 </script>
+

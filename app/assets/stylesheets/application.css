@@ -14,3 +14,7 @@
  *= require_self
  *= require jquery-ui
  */
+
+.card-columns .card {
+    width: 70.7%;
+}
