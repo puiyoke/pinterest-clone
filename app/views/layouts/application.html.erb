@@ -18,6 +18,19 @@
       <div class="notice"><%= flash[:notice] %></div>
     <% end %>
 
+    <% @tag = Tag.all %>
+    <script>
+$( function() {
+  var availableTags = [
+    "<%@tag.each do |x|%>",
+    "<%=x.name%>",
+    "<%end%>",
+  ];
+  $( "#alltags" ).autocomplete({
+    source: availableTags
+  });
+} );
+</script>
    
     <%= yield %>
   </body>
