@@ -6,7 +6,7 @@ class HomeController < ApplicationController
     end
 
     def explore
-        @tag = Tag.all.order('created_at DESC').first(20)
+        @tag = Tag.all.order('created_at DESC').first(15)
         @tagged = Tag.where(name: params[:tag])
         @tagging = Tagging.where(tag_id: @tagged)
         @taggings = Tagging.all

@@ -1,12 +1,17 @@
+<a href="/users/show">Back</a>
+<br><br>
 <%=link_to "New Pin", pins_new_path, id:"new_link", remote: true%>
 
-<br>
+<br><br>
 
-<div id="user_pins">
+<div id="user_pins" class="container">
+  <div class="card-columns">
     <%@pin.each do |x|%>
-        <a href="/pins/<%=x.id%>"><%=image_tag x.image_url(:display)%></a>
-        <a href="/pins/<%=x.id%>/edit">Edit</a>
-        <a href="/pins/<%=x.id%>/destroy", data-confirm="Are you sure?">Delete</a>  
+      <div class="card">
+        <a href="/pins/<%=x.id%>"><%= image_tag(x.image_url(:display), :class => "card-img") %></a>
+        <p class="text-center"><a href="/pins/<%=x.id%>/edit">Edit</a> | <a href="/pins/<%=x.id%>/destroy", data-confirm="Are you sure?">Delete</a></p>
+      </div>
     <%end%>
+  </div>
 </div>
 

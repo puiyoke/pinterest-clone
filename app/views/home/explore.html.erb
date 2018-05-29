@@ -1,16 +1,23 @@
-<%@tag.each do |x|%>
-    <a href="/explore/<%=x.name%>"><%=x.name%></a>
-<%end%>
-
-<br>
-<%if@tagging.present?%>
-    <%@tagging.each do |x|%>
-        <%@pin.where(id: x.pin_id).each do |y|%>
-            <%=image_tag y.image_url(:display)%>
-        <%end%>
+<div style="text-align: center;">
+    <%@tag.each do |x|%>
+        <a class="btn btn-primary" href="/explore/<%=x.name%>" role="button"><%=x.name%></a>
     <%end%>
+</div>
+
+
+<br><br>
+<%if@tagging.present?%>
+    <div class="container">
+        <div class="card-columns">
+            <%@tagging.each do |x|%>
+                <%@pin.where(id: x.pin_id).each do |y|%>
+                    <div class="card">
+                        <a href="/pins/<%=y.id%>"><%= image_tag(y.image_url(:display), :class => "card-img") %></a>
+                    </div>
+                <%end%>
+            <%end%>
+        </div>
+    </div>
 <%else%>
-
-    Click on a Tag!
-
+        <h3 style="text-align: center;">Latest Tags!</h3>
 <%end%>

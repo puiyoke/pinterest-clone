@@ -1,8 +1,14 @@
-<%=@board.title%><br>
-<%=@board.description%><br>
+<h1><%=@board.title%></h1>
+<h6><%=@board.description%></h6>
 
+<div class="container">
+  <div class="card-columns">
+    <%@board.pins.each do |x|%>
+      <div class="card">
+        <a href="/pins/<%=x.id%>"><%= image_tag(x.image_url(:display), :class => "card-img") %></a>
+        <p class="text-center"><a href="/boards/<%=params[:id]%>/<%=x.id%>/destroy">Remove from Board</a></p>
+      </div>
+    <%end%>
+  </div>
+</div>
 
-<%@board.pins.each do |x|%>
-    <%=image_tag x.image.url%>
-    <a href="/boards/<%=params[:id]%>/<%=x.id%>/destroy">Remove from Board</a>
-<%end%>
