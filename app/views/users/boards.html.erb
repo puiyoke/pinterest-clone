@@ -1,12 +1,18 @@
 <%=link_to "New Board", boards_new_path, id:"new_board_link", remote: true%>
 
 <br>
-
-<div id="user-boards">
-    <%@board.each do |x|%>
-        <a href="/boards/<%=x.id%>"><%=x.title%></a>
-        <a href="/boards/<%=x.id%>/edit">Edit</a>
-        <a href="/boards/<%=x.id%>/destroy", data-confirm="Are you sure?">Delete</a><br>
-    <%end%>
+<div class="container">
+<div id="user-boards" class="row">
+<%@board.each do |x|%>
+    <div class="card" style="margin: 10px;">
+        <div class="card-body">
+            <h5 class="card-title"><%=x.title%></h5>
+            <p class="card-text"><%=x.pins.count%> Pins</p>
+            <a href="/boards/<%=x.id%>" class="btn btn-primary">View Board</a>
+            <a href="/boards/<%=x.id%>/edit">Edit</a> | 
+            <a href="/boards/<%=x.id%>/destroy", data-confirm="Are you sure?">Delete</a><br>
+        </div>
+    </div>
+<%end%>
 </div>
-
+</div>
