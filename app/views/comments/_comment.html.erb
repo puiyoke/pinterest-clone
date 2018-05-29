@@ -4,5 +4,5 @@
 <%=current_user.first_name%><br>
 <%=@comment.comment%><br>
 <%if current_user%>
-    <a href="">Delete</a>
+    <a href="/comments/<%=@comment.id%>/destroy">Delete</a>
 <%end%>
