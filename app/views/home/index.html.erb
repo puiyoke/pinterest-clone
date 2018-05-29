@@ -3,7 +3,7 @@
   <div class="card-columns">
     <%@pin.each do |x|%>
       <div class="card">
-        <a href="/pins/<%=x.id%>"><%=image_tag x.image_url(:display)%></a>
+      <a href="/pins/<%=x.id%>"><%= image_tag(x.image_url(:display), :class => "card-img") %></a>
       </div>
     <%end%>
   </div>
@@ -22,4 +22,3 @@ $( function() {
   });
 } );
 </script>
-
