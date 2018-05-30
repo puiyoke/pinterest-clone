@@ -19,18 +19,18 @@
     <% end %>
 
     <% @tag = Tag.all %>
-    <script>
-$( function() {
-  var availableTags = [
-    "<%@tag.each do |x|%>",
-    "<%=x.name%>",
-    "<%end%>",
-  ];
-  $( "#alltags" ).autocomplete({
-    source: availableTags
-  });
-} );
-</script>
+  <script>
+    $( function() {
+      var availableTags = [
+      "<%@tag.each do |x|%>",
+      "<%=x.name%>",
+      "<%end%>",
+    ];
+    $( "#alltags" ).autocomplete({
+      source: availableTags
+      });
+      } );
+  </script>
    
     <%= yield %>
   </body>

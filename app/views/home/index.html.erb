@@ -1,15 +1,34 @@
 
+<%if current_user%>
+  <br>
+  <div class="container">
+    <div class="card-columns">
+      <%@pin.each do |x|%>
+        <%if x.image.present?%>
+          <div class="card">
+            <a href="/pins/<%=x.id%>"><%= image_tag(x.image_url(:display), :class => "card-img") %></a>
+          </div>
+        <%end%>
+      <%end%>
+    </div>
+  </div>
+<%else%>
 
 <br>
-<div class="container">
-  <div class="card-columns">
-    <%@pin.each do |x|%>
-      <%if x.image.present?%>
-        <div class="card">
-          <a href="/pins/<%=x.id%>"><%= image_tag(x.image_url(:display), :class => "card-img") %></a>
-        </div>
+<div style="text-align: center;">
+  <h1><b>Log in</b> or <b>Sign up</b> for more!</h1>
+  <h3>Join Pinpinpin today!</h3>
+<br>
+  <div class="container">
+    <div class="card-columns">
+      <%@pin.first(15).each do |x|%>
+        <%if x.image.present?%>
+          <div class="card">
+            <%= image_tag(x.image_url(:display), :class => "card-img") %>
+          </div>
+        <%end%>
       <%end%>
-    <%end%>
+    </div>
   </div>
 </div>
-
+<%end%>

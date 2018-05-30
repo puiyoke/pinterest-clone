@@ -1,13 +1,31 @@
-<h1>Search!</h1>
-<p>Tag: <%=params[:search]%></p>
 
-<% if @tags.blank? %>
-    <p>There are no results containing the term <%= params[:search] %>.</p>
-<% end %>
 
-<%@tagging.each do |x|%>
-    <%@pin.where(id: x.pin_id).each do |y|%>
-        <%=image_tag y.image_url(:display)%>
-    <%end%>
+
+<%if current_user%>
+    <h1>Search!</h1>
+    <br>
+    <p>Tag: <%=params[:search]%></p>
+    <% if @tags.blank? %>
+        <p>There are no results containing the term <%= params[:search] %>.</p>
+    <% end %>
+    <br>
+    <div class="container">
+        <div class="card-columns">
+            <%@tagging.each do |x|%>
+                <%@pin.where(id: x.pin_id).each do |y|%>
+                    <%if y.image.present?%>
+                        <div class="card">
+                        <a href="/pins/<%=y.id%>"><%= image_tag(y.image_url(:display), :class => "card-img") %></a>
+                        </div>
+                    <%end%>
+                <%end%>
+            <%end%>
+        </div>
+    </div>
+<%else%>
+    <br>
+    <div style="text-align: center;">
+        <h1><b>Log in</b> or <b>Sign up</b> for search results!</h1>
+        <h3>Join Pinpinpin today!</h3>
+    <br>
 <%end%>
-

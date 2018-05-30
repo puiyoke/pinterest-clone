@@ -1,7 +1,6 @@
 class User < ActiveRecord::Base
     has_secure_password
     validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
-    validates_presence_of :email, :password
     enum gender: {not_telling: 0, male: 1, female: 2}
     mount_uploader :avatar, AvatarUploader
     has_many :authentications, dependent: :destroy
