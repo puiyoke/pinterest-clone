@@ -9,7 +9,7 @@ RSpec.describe User, type: :model do
 		it { is_expected.to validate_presence_of(:password) }
 	end
 
-	context "creates: " do
+	context "initialize: " do
 		it "takes in a valid email & password" do
 			expect{ User.create(email: email, password: password) }.not_to raise_error
 		end
