@@ -76,3 +76,11 @@ gem "jquery-rails"
 gem "jquery-ui-rails"
 
 gem 'acts_as_follower', github: 'tcocca/acts_as_follower', branch: 'master'
+
+group :development, :test do
+  gem 'rspec'
+  gem 'rspec-rails', '~> 3.4'
+  gem 'shoulda-matchers'
+  gem 'shoulda-callback-matchers'
+  gem "database_cleaner"
+end

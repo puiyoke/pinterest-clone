@@ -1,0 +1,11 @@
+example_id                  | status | run_time        |
+--------------------------- | ------ | --------------- |
+./spec/board_spec.rb[1:1:1] | passed | 0.00612 seconds |
+./spec/board_spec.rb[1:1:2] | passed | 0.05695 seconds |
+./spec/board_spec.rb[1:2:1] | passed | 0.0068 seconds  |
+./spec/board_spec.rb[1:2:2] | passed | 0.01245 seconds |
+./spec/user_spec.rb[1:1:1]  | passed | 0.00798 seconds |
+./spec/user_spec.rb[1:1:2]  | passed | 0.04493 seconds |
+./spec/user_spec.rb[1:2:1]  | passed | 0.01774 seconds |
+./spec/user_spec.rb[1:2:2]  | passed | 0.01389 seconds |
+./spec/user_spec.rb[1:2:3]  | passed | 0.01288 seconds |

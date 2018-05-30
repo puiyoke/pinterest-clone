@@ -6,6 +6,7 @@ has_many :taggings
 has_many :tags, through: :taggings
 has_many :comments
 validates_presence_of :image
+validates_presence_of :title
 mount_uploader :image, AvatarUploader
 
     def self.tagged_with(name)
