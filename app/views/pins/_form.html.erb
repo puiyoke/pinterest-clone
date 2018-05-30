@@ -2,10 +2,11 @@
   <div id="pin-form">
     <%= form_for :pin, url: '/pins/new', id:"pin-form" do |f| %>
 
-      *Image: <%= f.file_field :image, :required => 'required'%><br><br>
-      *Title: <%= f.text_field :title, class: 'form-control' %><br>
+      <b>*Image:</b><br> <%= f.file_field :image%><br><br> <b>OR</b> <br><br>
+      Image URL: <%= f.text_field :remote_image_url, class: 'form-control' %><br>
+      <b>*Title:</b> <%= f.text_field :title, class: 'form-control' %><br>
       Description: <%= f.text_area :description, class: 'form-control' %><br>
-      Tags (separated by comma): <%= f.text_area :tag_list, :required => 'required', class: 'form-control' %><br>
+      <b>*Tags:</b> (separated by comma): <%= f.text_area :tag_list, :required => 'required', class: 'form-control' %><br>
       <%= f.hidden_field :user_id, :value => current_user.id %>
       <%= f.submit "Submit", class:"btn btn-primary" %>
     

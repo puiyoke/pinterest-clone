@@ -11,9 +11,11 @@
         <div class="card-columns">
             <%@tagging.each do |x|%>
                 <%@pin.where(id: x.pin_id).each do |y|%>
-                    <div class="card">
-                        <a href="/pins/<%=y.id%>"><%= image_tag(y.image_url(:display), :class => "card-img") %></a>
-                    </div>
+                    <%if y.image.present?%>
+                        <div class="card">
+                            <a href="/pins/<%=y.id%>"><%= image_tag(y.image_url(:display), :class => "card-img") %></a>
+                        </div>
+                    <%end%>
                 <%end%>
             <%end%>
         </div>

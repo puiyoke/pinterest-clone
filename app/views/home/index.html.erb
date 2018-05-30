@@ -4,9 +4,11 @@
 <div class="container">
   <div class="card-columns">
     <%@pin.each do |x|%>
-      <div class="card">
-      <a href="/pins/<%=x.id%>"><%= image_tag(x.image_url(:display), :class => "card-img") %></a>
-      </div>
+      <%if x.image.present?%>
+        <div class="card">
+          <a href="/pins/<%=x.id%>"><%= image_tag(x.image_url(:display), :class => "card-img") %></a>
+        </div>
+      <%end%>
     <%end%>
   </div>
 </div>

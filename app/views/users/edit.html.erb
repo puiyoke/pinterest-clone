@@ -4,7 +4,8 @@
 <div class="form-group col-md-4">
   <%= form_for :user, url: '/users/edit' do |f| %>
 
-    Add profile image: <%= f.file_field :avatar %><br><br>
+    Add profile image: <%= f.file_field :avatar %><br><br> <b>OR</b> <br><br>
+    Image URL: <%= f.text_field :remote_avatar_url, class: 'form-control' %><br>
     First name: <%= f.text_field :first_name, class: 'form-control' %><br>
     Last name: <%= f.text_field :last_name, class: 'form-control' %><br>
     About you: <%= f.text_area :description, class: 'form-control' %><br>
