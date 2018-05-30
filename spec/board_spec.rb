@@ -10,7 +10,7 @@ RSpec.describe Board, type: :model do
         
 	end
 
-	context "initialize: " do
+	context "create: " do
 		it "takes in a valid title " do
 			expect{ Board.create(title: title) }.not_to raise_error
 		end
